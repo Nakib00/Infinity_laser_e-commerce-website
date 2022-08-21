@@ -1,3 +1,31 @@
+<?php
+include('php/conn.php');
+$login = false;
+$showError = false;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email = $_POST["email"];
+    $password = $_POST["pass"]; 
+
+  $sql="Select * from customer where email='$email' AND password='$password'";
+
+  $result = mysqli_query($conn, $sql);
+  $num = mysqli_num_rows($result);
+  if ($num == 1){
+    $login=true;
+    session_start();
+    $_SESSION['loggedin'] = true;
+    $_SESSION['email'] = $email;
+    header("location: main.php");
+} 
+else{
+    $showError = "Invalid Credentials";
+}
+
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,24 +40,44 @@
   <div class="container-fluid">
     <a class="navbar-brand">Infinity laser</a>
   </div>
-</nav><br><br><br>
+</nav>
 
+<?php
+    if($login){
+    echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> You are logged in
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div> ';
+    }
+    if($showError){
+    echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> '. $showError.'
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div> ';
+    }
+?>
+
+<br><br><br>
 <div class="container">
     <h2 class="text-center">Login for Infinity laser Coustomer</h2>
-<form>
+<form action="login.php" method="post">
   <!-- Email input -->
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1" class="form-control" />
-    <label class="form-label" for="form2Example1">Email address</label>
+    <input type="email" id="email" name="email" class="form-control" />
+    <label class="form-label" for="email">Email address</label>
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
-    <input type="password" id="form2Example2" class="form-control" />
-    <label class="form-label" for="form2Example2">Password</label>
+    <input type="password" id="pass" name="pass" class="form-control" />
+    <label class="form-label" for="pass">Password</label>
   </div>
   <!-- Submit button -->
-  <button type="button" class="btn btn-primary btn-block mb-4">Login</button>
+  <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
 </form>
 </div>
 
