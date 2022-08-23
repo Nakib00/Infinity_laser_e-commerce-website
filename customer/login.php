@@ -79,6 +79,7 @@ else{
   <!-- Submit button -->
   <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
 </form>
+<a href="singup.php"><button type="button" class="btn btn-outline-primary mb-4">Sign up</button></a>
 </div>
 
     

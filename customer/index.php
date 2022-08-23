@@ -18,7 +18,25 @@
 </nav>
 
 <div class="container">
+  <br><br>    
+    <?php 
+    include('C:\xampp\htdocs\Infinity_laser\php\conn.php');
 
+    $sql ="SELECT * FROM `product`;";
+    $result_sql= mysqli_query($conn,$sql);
+
+    while ($result=mysqli_fetch_array($result_sql)){
+    ?>
+    <div class="card" style="width: 18rem mt-1 p-3;">
+  <img src="<?php echo $result['image'];?>" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $result['name'];?></h5>
+    <p class="card-text"><?php echo $result['description'];?></p>
+    <a href="#" class="btn btn-primary"><?php echo $result['price'];?></a>
+  </div>
+</div>
+<br>
+<?php } ?>
 </div>
 
 

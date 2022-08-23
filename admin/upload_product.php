@@ -1,3 +1,22 @@
+<?php
+include('C:\xampp\htdocs\Infinity_laser\php\conn.php');
+$showalrt=false;
+if(isset($_POST['submit'])){
+  $img=$_FILES["image"]['name'];
+  $size=$_POST["productname"];
+  $dis=$_POST["productDescription"];
+  $material=$_POST["price"];
+
+  $sql="INSERT INTO `product`(`image`, `name`, `description`, `price`) VALUES ('$img','$size','$dis','$material')";
+
+  if(mysqli_query($conn, $sql)){
+    $showalrt=true;
+  }else{
+    $showalrt=false;
+  }
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,8 +30,43 @@
     <!-- include navnar -->
     <?php include('navbar.php'); ?>
 
-<div class="container">
+      <!-- Showing Alart  -->
+<?php
+if($showalrt){
+echo '
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Successful!</strong> Your Coustom Design oder is placed.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+}
+?>
 
+<div class="container">
+  <h2 class="text-center">Upload Product</h2>
+
+
+  <form action="upload_product.php" method="post" enctype="multipart/form-data">
+    <legend>Upload Your Coustome Design Information</legend>
+    <div class="mb-3">
+    <label  class="form-label">Upload Product Image</label>
+    <input type="file" class="form-control" name="image">
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Product name</label>
+      <input type="text" id="disabledTextInput" class="form-control" name="productname">
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Product Description</label>
+      <input type="text" id="disabledTextInput" class="form-control" name="productDescription">
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Price</label>
+      <input type="text" id="disabledTextInput" class="form-control" name="price">
+    </div>
+    <div class="mb-3">
+    </div>
+    <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+</form>
 </div>
 
     
