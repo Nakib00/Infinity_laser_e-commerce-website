@@ -15,7 +15,7 @@
     <h1 class="text-center">Oder List</h1>
 
     <table class="table">
-  <thead>
+  <thead  class="table-dark">
     <tr>
       <th scope="col">Order ID</th>
       <th scope="col">Product Name</th>
