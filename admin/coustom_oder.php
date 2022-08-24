@@ -15,7 +15,7 @@
         <h1 class="text-center">Coustom Oder List</h1>
 
         <table class="table">
-  <thead>
+  <thead  class="table-dark">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Image</th>

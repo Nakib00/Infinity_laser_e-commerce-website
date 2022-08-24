@@ -39,7 +39,7 @@
         </div>
 
         <table class="table">
-  <thead>
+  <thead  class="table-dark">
     <tr>
       <th scope="col">Product ID</th>
       <th scope="col">Product Name</th>

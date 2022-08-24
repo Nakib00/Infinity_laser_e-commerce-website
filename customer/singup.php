@@ -1,7 +1,7 @@
 <?php
 include('C:\xampp\htdocs\Infinity_laser\php\conn.php');
 $showalrt=false;
-if(isset($_POST['fname'])){
+if(isset($_POST['submit'])){
   $fname=$_POST["fname"];
   $lname=$_POST["lname"];
   $phone=$_POST["phone"];

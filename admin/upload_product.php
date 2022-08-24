@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 if($showalrt){
 echo '
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Successful!</strong> Your Coustom Design oder is placed.
+  <strong>Successful!</strong> Your Product has been uploaded.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>';
 }
