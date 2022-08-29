@@ -3,11 +3,15 @@ include('C:\xampp\htdocs\Infinity_laser\php\conn.php');
 $showalrt=false;
 if(isset($_POST['submit'])){
   $img=$_FILES["image"]['name'];
+  $temp=$_FILES["image"]['tmp_name'];
+  $folder="coustome_design_image/".$img;
+  move_uploaded_file($temp,$folder);
+
   $dis=$_POST["designDescription"];
   $size=$_POST["size"];
   $material=$_POST["materials"];
 
-  $sql="INSERT INTO `coustome_design_oder`(`image`, `description`, `size`, `materials`) VALUES ('$img','$dis','$size','$material')";
+  $sql="INSERT INTO `coustome_design_oder`(`image`, `description`, `size`, `materials`) VALUES ('$folder','$dis','$size','$material')";
 
   if(mysqli_query($conn, $sql)){
     $showalrt=true;
