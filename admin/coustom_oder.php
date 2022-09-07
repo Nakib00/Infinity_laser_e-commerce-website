@@ -35,7 +35,7 @@
   while ($result=mysqli_fetch_array($result_sql)){ ?>
     <tr>
     <th scope="row"><?php echo $result['id'];?></th>
-    <td><img src=" <?php echo $result['image'];?>" height="50px" width="50px"></td>
+    <td><img src="<?php echo $result['image'];?>" height="50px" width="50px"></td>
     <td><?php echo $result['description'];?></td>
     <td><?php echo $result['size'];?></td>
     <td><?php echo $result['materials'];?></td>
