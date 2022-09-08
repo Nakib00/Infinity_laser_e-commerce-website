@@ -29,8 +29,8 @@
 
     while ($result = mysqli_fetch_array($result_sql)) {
     ?>
-      <div class="card d-inline-flex p-2" style="width: 18rem;">
-        <img src="product_img<?php echo $result['image']; ?>" Dlass="card-img-top">
+      <div class="card d-inline-flex p-1 m-1" style="width: 18rem;">
+        <img src="product_img<?php echo $result['image']; ?>" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><?php echo $result['name']; ?></h5>
           <p class="card-text"><?php echo $result['description']; ?></p>
