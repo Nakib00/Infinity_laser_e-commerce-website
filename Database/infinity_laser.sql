@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2022 at 11:46 PM
+-- Generation Time: Sep 08, 2022 at 07:21 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -43,6 +43,27 @@ INSERT INTO `admin` (`id`, `email_admin`, `password_admin`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contribution`
+--
+
+CREATE TABLE `contribution` (
+  `student` varchar(255) NOT NULL,
+  `contribution` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contribution`
+--
+
+INSERT INTO `contribution` (`student`, `contribution`) VALUES
+('Nakib', '10'),
+('Hana', '20'),
+('Rafi', '25'),
+('Disha', '10');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `coustome_design_oder`
 --
 
@@ -59,10 +80,9 @@ CREATE TABLE `coustome_design_oder` (
 --
 
 INSERT INTO `coustome_design_oder` (`id`, `image`, `description`, `size`, `materials`) VALUES
-(1, '3123.PNG', 'I want best one.', '20', 'wooden'),
-(2, '3123.PNG', 'I want best one.', '20', 'Metal'),
-(3, '34.PNG', 'Do best for my product', '30', 'Acrylic'),
-(4, '665373.jpg', 'I want best one.', '40', 'wooden');
+(12, 'c_d_imagedesigner-ss304.jpg', 'Will you laser cutting me as per the design I have given in steel. Hope to see something good from you.', '50*50', 'Metal'),
+(13, 'c_d_imagewooden-pattern-laser.jpg', 'Will you laser cutting me as per the design I have given in wooden.', '30*30', 'wooden'),
+(14, 'c_d_imageimg_4673.jpg', 'Will you laser cutting me as per the design I have given in Acrylic. Hope to see something good from you.', '60*60', 'Acrylic');
 
 -- --------------------------------------------------------
 
@@ -110,10 +130,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `image`, `name`, `description`, `price`) VALUES
-(1, 'Skin-Touch-Mobile-Case-Full-Protection-Phone-Cover-Mobile-Phone-Accessories.jpg', 'Mobile Case Design', 'This design my make by our shop', '400'),
-(2, 'images.jpg', 'Tree Design', 'This design my make by our shop', '200'),
-(3, 'Wooden-wall-by-Wonderwall-Studios1.jpg', 'Wooden Design', 'This design my make by our shop', '500'),
-(4, '123.jpg', 'Spiker Design', 'This design my make by our shop', '150');
+(6, 'phones-news.jpg', 'iphone 14', 'A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip. Pro. Beyond. iPhone 14 Pro and iPhone 14 Pro Max  Pre-order s', '$799'),
+(7, 'clock.PNG', 'Honeycomb Clock', 'When it comes to style, this honeycomb clock is oh-so sweet. Etsy seller Woodinky found inspiration in the Voronoi diagram combined with parametric design theory to create a time keeper that you don’t have to be a mathematician to love.', '$120'),
+(8, 'lixie clock.PNG', 'Lixie Clock', 'Engineer Connor Nishijima loves the style and functionality of Nixie tube clocks and wanted to build one of his own. But the price point in today’s market was a deal-breaker. So he designed and built the Lixie—an LED Nixie clock—that incorporates edge lig', '$300');
 
 --
 -- Indexes for dumped tables
@@ -157,7 +176,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `coustome_design_oder`
 --
 ALTER TABLE `coustome_design_oder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -169,7 +188,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
